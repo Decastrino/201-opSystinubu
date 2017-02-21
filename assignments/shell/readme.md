@@ -48,6 +48,8 @@ A "File_system_operations" class was implemented.
 This handles various user level permissions to files and folders in the Shell environment.
 It also handles getting the sizes of each files in the shell, date accessed, date changed.
 
+
+
 ===================================================================================================================================
 
 How to run the shell.
@@ -62,7 +64,7 @@ It begins with a prompt...%.
 
 The commands that will work in the shell environment are listed below
 
-
+================================================================================================================================
 Commands implemented:
 
 1.  ls:
@@ -84,13 +86,13 @@ Commands implemented:
 
 7. mkdir: creates a new directory.
 
-8. pwd: prints the current working directory path.
+8. pwd: prints the current working directory path.(not working as expected)
 
 9. head: prints out the first few lines of a file.
 
 10. prints out the last few lines/characters of a file.
 
-
+11. Various user level permissions where also implemented.
 
 Commands not yet implemented:
 
