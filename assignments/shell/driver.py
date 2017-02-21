@@ -1,8 +1,6 @@
 import threading
 from commandsFile import commandsClass
-#from commands import individualCommands
 
-#this class splits command and puts each parts in a list data structure.
 class commandSplitter(object):
 	def __init__(self):
 		self.splitCommand=[]
@@ -22,7 +20,7 @@ class commandChecker(commandSplitter):
 		self.lastParameter= ""
 		self.commandThread= None
 		self.daemonStatus= False;
-		self.commandList = ["ls","cat","cd","cp", "wc"]
+		self.commandList = ["ls","cat","cd","cp", "wc", "rm", "mkdir", "pwd", "head", "tail", "grep"]
 	
 	#function that accepts command for the program
 	def acceptCommand(self, command):
@@ -92,7 +90,37 @@ class commandChecker(commandSplitter):
 				self.thread_t.daemon = self.daemonStatus
 				self.thread_t.start()
 				self.thread_t.join()
+				
+			#MKDIR COMMAND
+			elif str.upper(self.mainCommand) == "MKDIR":
+				self.thread_t = threading.Thread(target=commandsClass.mkdir, args=(self.splitCommand, self.commandLength))
+				self.thread_t.daemon = self.daemonStatus
+				self.thread_t.start()
+				self.thread_t.join()
 			
+			#PWD COMMAND
+			elif str.upper(self.mainCommand) == "MKDIR":
+				self.thread_t = threading.Thread(target=commandsClass.pwd, args=(self.splitCommand, self.commandLength))
+				self.thread_t.daemon = self.daemonStatus
+				self.thread_t.start()
+				self.thread_t.join()
+				
+			#HEAD COMMAND
+			elif str.upper(self.mainCommand) == "MKDIR":
+				self.thread_t = threading.Thread(target=commandsClass.head, args=(self.splitCommand, self.commandLength))
+				self.thread_t.daemon = self.daemonStatus
+				self.thread_t.start()
+				self.thread_t.join()
+				
+			#TAIL COMMAND
+			elif str.upper(self.mainCommand) == "MKDIR":
+				self.thread_t = threading.Thread(target=commandsClass.tail, args=(self.splitCommand, self.commandLength))
+				self.thread_t.daemon = self.daemonStatus
+				self.thread_t.start()
+				self.thread_t.join()
+				
+				
+
 		#print an error message for wrong command entered
 		else:
 			if self.userCommand=="":
@@ -108,7 +136,7 @@ class shell(object):
 	def run(self):
 		while True:
 			#get userinput
-			self.userInput = input("$ ")
+			self.userInput = input("% ")
 			
 			
 			#check user input for termination callable
