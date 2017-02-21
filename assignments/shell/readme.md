@@ -49,20 +49,28 @@ It also handles getting the sizes of each files in the shell, date accessed, dat
 
 
 Commands implemented:
-1. ls:
+1.  ls:
 	-l: lists all files/folders 
 	-a: lists all files and sorts them according to time accessed(newest to oldest).
+	
 2. cat: Outputs texts to the screen
+
 3. cd: 
 	"directory_name": go to a user specified directory
 	'~': go to home directory(not too accurate)
 	'..': change to parent directory(go up one directory)
 4. cp 
+
 5. wc:  counts number of words in a file and outputs the result to the screen
+
 6. rm:  Removes a file. it also removes a directory. 
+
 7. mkdir: creates a new directory.
+
 8. pwd: prints the current working directory path.
+
 9. head: prints out the first few lines of a file.
+
 10. prints out the last few lines/characters of a file.
 
 
@@ -70,5 +78,4 @@ Commands implemented:
 Commands not yet implemented:
 
 1. pipe
-2. pipe
-3. command > file and file > command.
+2. command > file and file > command.
