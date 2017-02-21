@@ -82,11 +82,12 @@ Commands implemented:
 
 5. wc:  counts number of words in a file and outputs the result to the screen
 
-6. rm:  Removes a file. it also removes a directory. 
+6. rm:  Removes a file. 
+        it also removes a directory.(rmdir)
 
 7. mkdir: creates a new directory.
 
-8. pwd: prints the current working directory path.(not working as expected)
+8. pwd: prints the current working directory path.
 
 9. head: prints out the first few lines of a file.
 
@@ -103,4 +104,4 @@ Commands not yet implemented:
 Commands not working correctly:
 1. grep
 
-2. pwd
+
