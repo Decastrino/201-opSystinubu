@@ -48,6 +48,19 @@ A "File_system_operations" class was implemented.
 This handles various user level permissions to files and folders in the Shell environment.
 It also handles getting the sizes of each files in the shell, date accessed, date changed.
 
+===================================================================================================================================
+
+How to run the shell.
+
+From command prompt, navigate to the directoey where the shell program folder is located e.g c:\Users\...\...\Helix\project folder>
+
+On getting to the project folder, type python leave a space and the name of the file to be run. E.g. 
+projectFolder>python driver.py
+
+The above step gets you into our shell interface where you can run the implemented commands.
+It begins with a prompt...%.
+
+The commands that will work in the shell environment are listed below
 
 
 Commands implemented:
@@ -82,4 +95,10 @@ Commands implemented:
 Commands not yet implemented:
 
 1. pipe
+
 2. command > file and file > command.
+
+Commands not working correctly:
+1. grep
+
+2. pwd
