@@ -2,6 +2,7 @@ import os
 import stat
 import datetime
 import shutil
+import subprocess
 
 from os.path import expanduser
 
@@ -77,13 +78,6 @@ class File_system_operations(object):
         self.object_permission = ''.join(self.list_of_all_permissions)
         return self.object_permission
     
-   #def owner(self, object_passed):
-       #current_object = os.stat(object_passed)
-       
-       #owner_Id = current_object.st_uid
-       #owner = pwd.getpwuid(owner_Id)[0]
-
-       #return owner
    
    def date_modified(self, object_passed):
        current_object_time = os.path.getmtime(object_passed)
@@ -401,6 +395,83 @@ class commandsClass(object):
         else:
             print("Check command, Should be of the form \n[cat filename]")
 			
+    
+	#function "pwd": outputs current working directory
+    def pwd(command_passed, command_length):
+    	if(command_length==1):
+    		dir = os.getcwd()
+    		print(dir)
+    	else:
+    		print("PWD does not need arguments")
+        
+	#function "head": outputs 3 lines of text to screen
+    def head(command_passed, command_length):
+        #head command is to be of length 2, command and argument
+        if(command_length == 2):
+            #get the argument passed which is the second index/also file name
+            argument_passed = command_passed[1]
+            
+            #check if argument is a file
+            if os.path.isfile(argument_passed):
+                #check if user has access to read file
+                if(os.access(argument_passed, os.R_OK)):
+                    #open the file for reading
+                    open_file = open(argument_passed,"r")  
+                    
+                    #read enter file
+                    read_data = open_file.read()
+                    print(read_data[0:150])
+                else:
+                    print("You don't have permission to view this file")
+            else:
+                print("Passed argument is not a file")
+                
+        else:
+            print("Check command, Should be of the form \n[head filename]")
+	
+    def tail(command_passed, command_length):
+        #head command is to be of length 2, command and argument
+        if(command_length == 2):
+            #get the argument passed which is the second index/also file name
+            argument_passed = command_passed[1]
+            
+            #check if argument is a file
+            if os.path.isfile(argument_passed):
+                #check if user has access to read file
+                if(os.access(argument_passed, os.R_OK)):
+                    #open the file for reading
+                    open_file = open(argument_passed,"r")  
+                    
+                    #read enter file
+                    read_data = open_file.read()
+                    print(read_data[-150:])
+                else:
+                    print("You don't have permission to view this file")
+            else:
+                print("Passed argument is not a file")
+                
+        else:
+            print("Check command, Should be of the form \n[tail filename]")
+			
+	#grep a file
+    '''def grep(command_passed, command_length):
+        #grep always has a length of three
+        if(command_length==3):
+            #get second argument
+            second_argument = command_passed[1]
+            #check if there is a third argument
+            if( not command_passed[2] == ""):
+                third_argument = command_passed[2]
+                dir = os.getcwd()
+                hosts=subprocess.Popen(['grep','pwd',os.path.join(dir,third_argument)], stdout= subprocess.PIPE)
+                print (hosts.stdout.read())
+            else:
+                print("File name not specified.")
+        else:
+            print("Wrong command should be of the from \n[cp source destination]")'''
+	
+	
+	
 	#change directory
     def cd(command_passed, command_length):
         #check if only "cd is passed"
@@ -571,4 +642,31 @@ class commandsClass(object):
         
         else:
             print ("Command should be of the format \n[rm file\directory]")
-                
+			
+         
+    def mkdir(command_passed, command_length):
+    
+        if(command_length==2): 
+            object_passed = command_passed[1]
+            
+            if(os.path.isdir(object_passed)):
+                pass
+            elif(os.path.isfile(object_passed)):
+                raise OSError(("a file with the same name as the desired " \
+						"dir, '%s', already exists." %object_passed))
+            else:
+                parent, directory = os.path.split(object_passed)
+				
+                if parent and not os.path.isdir(parent):
+                   os. mkdir(parent)
+					
+                if directory: 
+                    os.mkdir(directory)
+					
+        else:
+            print("Command too short/n Need to specify a name for the new directory")
+			
+			
+	
+	
+  
