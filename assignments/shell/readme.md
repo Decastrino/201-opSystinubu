@@ -34,10 +34,12 @@ The commandChecker class has 3 functions that:
 
 	1. acceptCommand: accept the user command(i.e commands gotten from the commandSpltter
 	   class.
+	   
 	2. processCommand: process the user command(i.e it checks for the length of the command
 	   entered, and takes all first element in the splitted list of words as the main shell command.
+	   
 	3. passCommand: this function checks if the command is to be run as an underground process(a daemon thread).
-       It also validates the command by checking if it is in the list of recorgnised commands for the shell.
+           It also validates the command by checking if it is in the list of recorgnised commands for the shell.
 	 
 If commands passed are valid commands (i.e in the list of recorgnised commands), It checks for which specific command was entered and then runs it's code..(sends it off as a thread).
 
@@ -49,8 +51,10 @@ It also handles getting the sizes of each files in the shell, date accessed, dat
 
 
 Commands implemented:
+
 1.  ls:
 	-l: lists all files/folders 
+	
 	-a: lists all files and sorts them according to time accessed(newest to oldest).
 	
 2. cat: Outputs texts to the screen
