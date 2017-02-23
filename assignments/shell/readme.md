@@ -14,14 +14,17 @@ Date Completed: 02/20/2017
 
 
 ================================================================================================
+The program is executed by calling the python command followed by the  file name.
+The executedfile contains a main fucntion that calls the main thread, this main thread function creates a thread that starts the whole input processing.
+When a user enters a command, it is checked
 
 
+
+This program is a makeshift shell written in python, that accepts commands from users, 
+kicks off a main thread when the input is entered, the input is checked and split, 
+based on the split, functions are called that carry out appropriate commands entered by the user.
 The shell is implemented as a class. It has methods that allows it get user inputs, compare inputs with predefined lists of valid commands and, exit.
 
-A mainThread Class was also created. This class calls the shell class and also creates individual threads for each command that is to be run on the shell. 
-
-
-The shell starts up with a percentage sign on the commandline interface.
 
 It reads user input as a strings.
 
@@ -54,7 +57,7 @@ It also handles getting the sizes of each files in the shell, date accessed, dat
 
 How to run the shell.
 
-From command prompt, navigate to the directoey where the shell program folder is located e.g c:\Users\...\...\Helix\project folder>
+From command prompt, navigate to the directory where the shell program folder is located e.g c:\Users\...\...\Helix\project folder>
 
 On getting to the project folder, type python leave a space and the name of the file to be run. E.g. 
 projectFolder>python driver.py
@@ -95,6 +98,11 @@ Commands implemented:
 
 11. Various user level permissions where also implemented.
 
+12. grep: searches for a KEYWORD in a file and outputs all lines containing the keyword.
+
+13. Chmod.
+
+
 Commands not yet implemented:
 
 1. pipe
@@ -102,6 +110,6 @@ Commands not yet implemented:
 2. command > file and file > command.
 
 Commands not working correctly:
-1. grep
+1. Chmod
 
 
